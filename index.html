@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Test Announcement | Habras International School & MARKS SAATHI</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#2563EB',
+                            dark: '#1E3A8A',
+                            accent: '#F59E0B',
+                            light: '#F3F4F6'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Vibrancy & Effects */
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Surprise Overlay Styles */
+        #surprise-overlay {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        
+        #surprise-overlay.hidden-overlay {
+            transform: translateY(-100%);
+        }
+
+        /* Pulse Animation for Live Badge */
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+        
+        .live-badge {
+            animation: pulse-red 2s infinite;
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #2563EB, #9333EA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Card Hover Lift */
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Accordion Transition */
+        .accordion-content {
+            transition: max-height 0.3s ease-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .accordion-active .accordion-content {
+            max-height: 500px; /* Arbitrary large height */
+        }
+        .accordion-active .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-gray-800">
+
+    <div id="surprise-overlay">
+        <div class="text-center px-6 text-white max-w-lg">
+            <div class="mb-6 text-6xl animate-bounce">📩</div>
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">An Important Announcement</h2>
+            <p class="text-blue-100 mb-8 text-lg">From Habras International School<br>in collaboration with Marks Saathi</p>
+            <button onclick="revealSite()" class="bg-white text-brand-blue font-bold py-4 px-8 rounded-full shadow-lg hover:scale-105 transition transform text-lg">
+                Tap to Reveal <i class="fas fa-envelope-open-text ml-2"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="main-content" class="opacity-0 transition-opacity duration-1000">
+
+        <header class="relative bg-white pt-12 pb-16 px-6 text-center shadow-sm overflow-hidden">
+            <div class="absolute top-0 left-0 w-32 h-32 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+            <div class="absolute top-0 right-0 w-32 h-32 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+
+            <div class="relative z-10 max-w-4xl mx-auto" data-aos="fade-down">
+                <span class="inline-flex items-center px-4 py-1 rounded-full text-sm font-bold bg-red-100 text-red-600 live-badge mb-6">
+                    <span class="w-2 h-2 bg-red-600 rounded-full mr-2"></span> LIVE TEST
+                </span>
+
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+                    Live General <br><span class="text-gradient">Reasoning Test</span>
+                </h1>
+
+                <p class="text-xl md:text-2xl text-gray-600 font-medium mb-2">
+                    Habras International School <span class="text-gray-400 mx-2">×</span> MARKS SAATHI
+                </p>
+
+                <div class="flex flex-col md:flex-row justify-center items-center gap-2 mt-4 text-sm font-semibold text-gray-500">
+                    <span class="bg-blue-50 px-3 py-1 rounded border border-blue-100 text-blue-700">✅ Mandatory for all students</span>
+                </div>
+
+                <div class="mt-8">
+                    <a href="https://play.google.com/store/apps/details?id=co.ted.ykvjf" class="inline-flex items-center bg-brand-blue hover:bg-brand-dark text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-blue-500/50 transition-all transform hover:scale-105 text-lg">
+                        <i class="fab fa-google-play mr-3 text-2xl"></i> Download App Now
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <section class="py-10 px-6">
+            <div class="max-w-2xl mx-auto" data-aos="zoom-in">
+                <div class="bg-gradient-to-r from-yellow-50 to-orange-50 border border-orange-200 rounded-2xl p-6 text-center shadow-sm relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">EXCLUSIVE</div>
+                    
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-800">
+                        Premium Test Series Access
+                    </h3>
+                    <div class="mt-2 text-lg">
+                        <span class="text-gray-400 line-through decoration-red-500 decoration-2 mr-2">Worth ₹999</span>
+                        <span class="text-green-600 font-extrabold text-2xl animate-pulse">FREE</span>
+                        <span class="text-gray-600 block text-sm mt-1">Limited time for our students only</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-8 px-6 bg-white">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-8" data-aos="fade-up">
+                    <h2 class="text-3xl font-bold text-gray-800"><i class="far fa-calendar-alt text-brand-blue mr-2"></i> Live Schedule</h2>
+                    <p class="text-brand-blue font-semibold mt-2">Wednesday, 21 Jan 2026</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-lg hover-card border-l-4 border-l-blue-500" data-aos="fade-right">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Class 5 – 7</h3>
+                                <p class="text-gray-500 text-sm mt-1">Junior Group</p>
+                            </div>
+                            <div class="bg-blue-100 p-3 rounded-full">
+                                <i class="fas fa-user-graduate text-blue-600"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center text-lg font-bold text-gray-700">
+                            <i class="far fa-clock mr-2 text-blue-500"></i> 4:00 PM – 4:30 PM
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-lg hover-card border-l-4 border-l-purple-500" data-aos="fade-left">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Class 8 – 10</h3>
+                                <p class="text-gray-500 text-sm mt-1">Senior Group</p>
+                            </div>
+                            <div class="bg-purple-100 p-3 rounded-full">
+                                <i class="fas fa-graduation-cap text-purple-600"></i>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center text-lg font-bold text-gray-700">
+                            <i class="far fa-clock mr-2 text-purple-500"></i> 4:30 PM – 5:00 PM
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 px-6">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-2xl font-bold text-center mb-6">Exam Details</h2>
+                
+                <div class="bg-white rounded-xl shadow-sm mb-4 border border-gray-100 overflow-hidden" data-aos="fade-up">
+                    <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-5 bg-gray-50 hover:bg-gray-100 transition text-left focus:outline-none">
+                        <span class="font-bold text-lg text-gray-800"><i class="fas fa-clipboard-list mr-3 text-blue-500"></i> Exam Pattern</span>
+                        <i class="fas fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content bg-white px-5">
+                        <div class="py-4 text-gray-600 space-y-2">
+                            <p>• <strong>Questions:</strong> 30 MCQs</p>
+                            <p>• <strong>Duration:</strong> 30 Minutes</p>
+                            <p>• <strong>Mode:</strong> Online (MARKS SAATHI App)</p>
+                            <p>• <strong>Difficulty:</strong> Medium</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl shadow-sm mb-4 border border-gray-100 overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <button onclick="toggleAccordion(this)" class="w-full flex justify-between items-center p-5 bg-gray-50 hover:bg-gray-100 transition text-left focus:outline-none">
+                        <span class="font-bold text-lg text-gray-800"><i class="fas fa-book-open mr-3 text-green-500"></i> Syllabus Topics</span>
+                        <i class="fas fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content bg-white px-5">
+                        <div class="py-4 text-gray-600">
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li><strong>Series Completion:</strong> Number (2,4,6...) & Letter (A,C,E...) series.</li>
+                                <li><strong>Coding-Decoding:</strong> Alphabet to number codes (e.g., FATHER = 6-1-20...).</li>
+                                <li><strong>Visual Reasoning:</strong> Shapes, counting triangles, mirror images.</li>
+                                <li><strong>Logic & Math:</strong> Directions, Odd one out, Clock angles, Calendar days.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 px-6 bg-blue-50">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-2xl font-bold text-center mb-8">How to Join</h2>
+                
+                <div class="relative border-l-4 border-blue-200 ml-4 space-y-8">
+                    <div class="relative pl-8" data-aos="fade-left">
+                        <div class="absolute -left-3 top-0 bg-blue-500 w-6 h-6 rounded-full border-4 border-white"></div>
+                        <h4 class="font-bold text-lg text-gray-800">Step 1: Download App</h4>
+                        <p class="text-gray-600 text-sm">Install MARKS SAATHI from Play Store immediately.</p>
+                    </div>
+
+                    <div class="relative pl-8" data-aos="fade-left" data-aos-delay="100">
+                        <div class="absolute -left-3 top-0 bg-blue-500 w-6 h-6 rounded-full border-4 border-white"></div>
+                        <h4 class="font-bold text-lg text-gray-800">Step 2: Register</h4>
+                        <p class="text-gray-600 text-sm">Create your account <strong>before</strong> the exam day.</p>
+                    </div>
+
+                    <div class="relative pl-8" data-aos="fade-left" data-aos-delay="200">
+                        <div class="absolute -left-3 top-0 bg-blue-500 w-6 h-6 rounded-full border-4 border-white"></div>
+                        <h4 class="font-bold text-lg text-gray-800">Step 3: Go Live</h4>
+                        <p class="text-gray-600 text-sm">Open the app 5 mins before your scheduled time.</p>
+                    </div>
+                </div>
+
+                <div class="mt-10 text-center">
+                    <a href="https://play.google.com/store/apps/details?id=co.ted.ykvjf" class="inline-block w-full md:w-auto bg-gray-900 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-800 transition">
+                        <i class="fab fa-android mr-2"></i> Download MARKS SAATHI
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-8 px-6">
+            <div class="max-w-3xl mx-auto bg-green-50 border border-green-100 rounded-xl p-6 text-center" data-aos="fade-in">
+                <i class="fas fa-heart text-green-500 text-2xl mb-3"></i>
+                <p class="text-green-800 font-medium">
+                    "This test is for learning and aptitude checking. Marks are not the focus. Just attempt sincerely and have fun!"
+                </p>
+            </div>
+        </section>
+
+        <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm">
+            <p class="text-white font-bold text-lg mb-1">Habras International School</p>
+            <p class="mb-4">Powered by <span class="text-blue-400">MARKS SAATHI</span></p>
+            <p>&copy; 2026. Learning Made Smarter.</p>
+        </footer>
+
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50
+        });
+
+        // Surprise Overlay Logic
+        function revealSite() {
+            const overlay = document.getElementById('surprise-overlay');
+            const mainContent = document.getElementById('main-content');
+            
+            overlay.classList.add('hidden-overlay');
+            
+            // Show main content after transition
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                mainContent.classList.remove('opacity-0');
+                // Refresh AOS animations after reveal
+                AOS.refresh();
+            }, 600);
+        }
+
+        // Accordion Logic
+        function toggleAccordion(button) {
+            const parent = button.parentElement;
+            parent.classList.toggle('accordion-active');
+        }
+    </script>
+</body>
+</html>
