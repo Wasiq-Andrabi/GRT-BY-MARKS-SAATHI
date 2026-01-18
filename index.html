@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Test Announcement | Habras International School & MARKS SAATHI</title>
+    <title>Live Test Announcement | Habras International School</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
@@ -34,19 +34,13 @@
     </script>
 
     <style>
-        /* Custom Vibrancy & Effects */
-        body {
-            overflow-x: hidden;
-        }
+        body { overflow-x: hidden; }
 
-        /* Surprise Overlay Styles */
+        /* Professional Overlay Styles */
         #surprise-overlay {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            background: #ffffff;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             z-index: 9999;
             display: flex;
             flex-direction: column;
@@ -59,15 +53,14 @@
             transform: translateY(-100%);
         }
 
-        /* Pulse Animation for Live Badge */
-        @keyframes pulse-red {
-            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        .pulse-soft {
+            animation: pulse-soft 2s infinite;
         }
         
-        .live-badge {
-            animation: pulse-red 2s infinite;
+        @keyframes pulse-soft {
+            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
         }
 
         /* Gradient Text */
@@ -77,23 +70,23 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Card Hover Lift */
+        /* Hover Effects */
         .hover-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .hover-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Accordion Transition */
+        /* Accordion */
         .accordion-content {
             transition: max-height 0.3s ease-out;
             max-height: 0;
             overflow: hidden;
         }
         .accordion-active .accordion-content {
-            max-height: 500px; /* Arbitrary large height */
+            max-height: 500px; 
         }
         .accordion-active .fa-chevron-down {
             transform: rotate(180deg);
@@ -103,12 +96,30 @@
 <body class="bg-slate-50 text-gray-800">
 
     <div id="surprise-overlay">
-        <div class="text-center px-6 text-white max-w-lg">
-            <div class="mb-6 text-6xl animate-bounce">📩</div>
-            <h2 class="text-2xl md:text-3xl font-bold mb-4">An Important Announcement</h2>
-            <p class="text-blue-100 mb-8 text-lg">From Habras International School<br>in collaboration with Marks Saathi</p>
-            <button onclick="revealSite()" class="bg-white text-brand-blue font-bold py-4 px-8 rounded-full shadow-lg hover:scale-105 transition transform text-lg">
-                Tap to Reveal <i class="fas fa-envelope-open-text ml-2"></i>
+        <div class="text-center px-6 max-w-2xl">
+            
+            <div class="flex justify-center items-center gap-4 mb-8">
+                <img src="https://i.postimg.cc/qqytSXck/Screenshot-2026-01-15-22-43-11-29-92460851df6f172a4592fca41cc2d2e6.jpg" 
+                     alt="Habras International School" 
+                     class="h-20 md:h-24 w-auto object-contain rounded-lg shadow-sm border border-gray-100 p-1 bg-white">
+                
+                <span class="text-gray-300 text-2xl font-light">✕</span>
+                
+                <img src="https://i.postimg.cc/4xBYD3cX/Screenshot-2026-01-14-12-46-53-47-680d03679600f7af0b4c700c6b270fe7.jpg" 
+                     alt="Marks Saathi" 
+                     class="h-20 md:h-24 w-auto object-contain rounded-lg shadow-sm border border-gray-100 p-1 bg-white">
+            </div>
+            
+            <h1 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4 tracking-tight uppercase leading-snug">
+                HABRAS INTERNATIONAL SCHOOL
+            </h1>
+            
+            <p class="text-gray-600 text-lg md:text-xl mb-10 font-medium">
+                has a special announcement for you
+            </p>
+            
+            <button onclick="revealSite()" class="bg-brand-blue text-white font-bold py-3 px-10 rounded-full shadow-xl hover:bg-brand-dark transition transform hover:scale-105 text-lg pulse-soft">
+                Click Here
             </button>
         </div>
     </div>
@@ -116,20 +127,28 @@
     <div id="main-content" class="opacity-0 transition-opacity duration-1000">
 
         <header class="relative bg-white pt-12 pb-16 px-6 text-center shadow-sm overflow-hidden">
-            <div class="absolute top-0 left-0 w-32 h-32 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-            <div class="absolute top-0 right-0 w-32 h-32 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+            <div class="absolute top-0 left-0 w-32 h-32 bg-blue-50 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
+            <div class="absolute top-0 right-0 w-32 h-32 bg-purple-50 rounded-full mix-blend-multiply filter blur-xl opacity-70"></div>
 
             <div class="relative z-10 max-w-4xl mx-auto" data-aos="fade-down">
-                <span class="inline-flex items-center px-4 py-1 rounded-full text-sm font-bold bg-red-100 text-red-600 live-badge mb-6">
-                    <span class="w-2 h-2 bg-red-600 rounded-full mr-2"></span> LIVE TEST
+                
+                <div class="flex justify-center mb-6">
+                    <img src="https://i.postimg.cc/4xBYD3cX/Screenshot-2026-01-14-12-46-53-47-680d03679600f7af0b4c700c6b270fe7.jpg" 
+                         alt="Marks Saathi" 
+                         class="h-28 w-auto object-contain drop-shadow-xl rounded-2xl bg-white p-2 border border-gray-100">
+                </div>
+
+                <span class="inline-flex items-center px-4 py-1 rounded-full text-sm font-bold bg-red-100 text-red-600 mb-6 border border-red-200">
+                    <span class="w-2 h-2 bg-red-600 rounded-full mr-2 animate-pulse"></span> LIVE TEST
                 </span>
 
                 <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
                     Live General <br><span class="text-gradient">Reasoning Test</span>
                 </h1>
 
-                <p class="text-xl md:text-2xl text-gray-600 font-medium mb-2">
-                    Habras International School <span class="text-gray-400 mx-2">×</span> MARKS SAATHI
+                <p class="text-lg md:text-xl text-gray-700 font-medium mb-2 px-4">
+                    Habras International School in collaboration with 
+                    <span class="text-brand-blue font-bold">Marks Saathi</span>
                 </p>
 
                 <div class="flex flex-col md:flex-row justify-center items-center gap-2 mt-4 text-sm font-semibold text-gray-500">
@@ -154,7 +173,7 @@
                     </h3>
                     <div class="mt-2 text-lg">
                         <span class="text-gray-400 line-through decoration-red-500 decoration-2 mr-2">Worth ₹999</span>
-                        <span class="text-green-600 font-extrabold text-2xl animate-pulse">FREE</span>
+                        <span class="text-green-600 font-extrabold text-2xl">FREE</span>
                         <span class="text-gray-600 block text-sm mt-1">Limited time for our students only</span>
                     </div>
                 </div>
@@ -215,8 +234,8 @@
                         <div class="py-4 text-gray-600 space-y-2">
                             <p>• <strong>Questions:</strong> 30 MCQs</p>
                             <p>• <strong>Duration:</strong> 30 Minutes</p>
+                            <p>• <strong>Marking:</strong> 1 Mark for each correct answer. 0 for incorrect.</p>
                             <p>• <strong>Mode:</strong> Online (MARKS SAATHI App)</p>
-                            <p>• <strong>Difficulty:</strong> Medium</p>
                         </div>
                     </div>
                 </div>
@@ -283,7 +302,7 @@
 
         <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm">
             <p class="text-white font-bold text-lg mb-1">Habras International School</p>
-            <p class="mb-4">Powered by <span class="text-blue-400">MARKS SAATHI</span></p>
+            <p class="mb-4">in collaboration with <span class="text-blue-400">MARKS SAATHI</span></p>
             <p>&copy; 2026. Learning Made Smarter.</p>
         </footer>
 
@@ -309,7 +328,6 @@
             setTimeout(() => {
                 overlay.style.display = 'none';
                 mainContent.classList.remove('opacity-0');
-                // Refresh AOS animations after reveal
                 AOS.refresh();
             }, 600);
         }
