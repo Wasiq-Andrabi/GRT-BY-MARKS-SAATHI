@@ -34,13 +34,12 @@
     </script>
 
     <style>
-        /* 🛑 CRITICAL: PREVENT HORIZONTAL SCROLL */
+        /* 🛑 STRICT NO SCROLLING */
         html, body {
             overflow-x: hidden !important;
             width: 100% !important;
             margin: 0;
             padding: 0;
-            position: relative;
         }
 
         /* OVERLAY STYLES */
@@ -51,20 +50,20 @@
             width: 100vw;
             height: 100vh;
             background: #ffffff;
-            z-index: 99999;
+            z-index: 999999; /* Max Z-Index */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-            will-change: transform;
+            transition: opacity 0.5s ease-out;
         }
         
-        .slide-up {
-            transform: translateY(-100%);
+        .fade-out {
+            opacity: 0;
+            pointer-events: none;
         }
 
-        /* Pulse Animation for Button */
+        /* Pulse Animation */
         .pulse-soft {
             animation: pulse-soft 2s infinite;
         }
@@ -80,15 +79,6 @@
             background: linear-gradient(to right, #2563EB, #9333EA);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-
-        /* Hover Effects */
-        .hover-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .hover-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
         }
 
         /* Accordion */
@@ -109,21 +99,41 @@
             font-variant-numeric: tabular-nums;
         }
     </style>
+
+    <script>
+        function enterSite() {
+            // Immediately hide overlay
+            const overlay = document.getElementById('surprise-overlay');
+            const mainContent = document.getElementById('main-content');
+            
+            overlay.style.opacity = '0';
+            
+            // Allow clicks on main content immediately
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                mainContent.classList.remove('opacity-0');
+                
+                // Initialize animations ONLY after entry
+                // This prevents bugs
+                if(window.AOS) {
+                    window.AOS.refresh();
+                }
+            }, 300);
+        }
+    </script>
 </head>
 <body class="bg-slate-50 text-gray-800 antialiased">
 
     <div id="surprise-overlay">
-        <div class="text-center px-4 max-w-lg w-full">
+        <div class="text-center px-4 max-w-lg w-full relative z-50">
             
             <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-8">
                 <img src="https://i.postimg.cc/qqytSXck/Screenshot-2026-01-15-22-43-11-29-92460851df6f172a4592fca41cc2d2e6.jpg" 
-                     alt="Habras International School" 
                      class="h-32 md:h-40 w-auto object-contain rounded-lg shadow-sm border border-gray-100 p-1 bg-white">
                 
                 <span class="text-gray-300 text-3xl font-light transform rotate-90 md:rotate-0">✕</span>
                 
                 <img src="https://i.postimg.cc/4xBYD3cX/Screenshot-2026-01-14-12-46-53-47-680d03679600f7af0b4c700c6b270fe7.jpg" 
-                     alt="Marks Saathi" 
                      class="h-32 md:h-40 w-auto object-contain rounded-lg shadow-sm border border-gray-100 p-1 bg-white">
             </div>
             
@@ -135,7 +145,7 @@
                 has a special announcement for you
             </p>
             
-            <button onclick="enterSite()" class="bg-brand-blue text-white font-bold py-4 px-12 rounded-full shadow-2xl hover:bg-brand-dark transition transform active:scale-95 text-xl pulse-soft cursor-pointer select-none">
+            <button onclick="enterSite()" class="bg-brand-blue text-white font-bold py-4 px-12 rounded-full shadow-2xl hover:bg-brand-dark transition transform active:scale-95 text-xl pulse-soft cursor-pointer relative z-50">
                 Click Here
             </button>
         </div>
@@ -151,7 +161,6 @@
                 
                 <div class="flex justify-center mb-8">
                     <img src="https://i.postimg.cc/4xBYD3cX/Screenshot-2026-01-14-12-46-53-47-680d03679600f7af0b4c700c6b270fe7.jpg" 
-                         alt="Marks Saathi" 
                          class="h-52 md:h-72 w-auto object-contain drop-shadow-2xl rounded-3xl bg-white p-4 border border-gray-100">
                 </div>
 
@@ -359,28 +368,6 @@
             offset: 20
         });
 
-        // 🟢 FIXED: BUTTON WORKS INSTANTLY
-        function enterSite() {
-            const overlay = document.getElementById('surprise-overlay');
-            const mainContent = document.getElementById('main-content');
-            
-            // Slide up overlay
-            overlay.classList.add('slide-up');
-            
-            // Show content immediately
-            mainContent.classList.remove('opacity-0');
-            
-            // Trigger animation refresh
-            setTimeout(() => {
-                AOS.refresh();
-            }, 300);
-
-            // Remove overlay from DOM to prevent interference
-            setTimeout(() => {
-                overlay.style.display = 'none';
-            }, 600);
-        }
-
         // Accordion Logic
         function toggleAccordion(button) {
             const parent = button.parentElement;
@@ -397,4 +384,11 @@
 
             function getTimeString(distance) {
                 if (distance < 0) return "STARTED";
-                const days 
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                let result = "";
+                if (days > 0) result += days + "d ";
+                result += hours + "h " + minutes + "m "
