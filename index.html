@@ -91,23 +91,28 @@
         .accordion-active .fa-chevron-down {
             transform: rotate(180deg);
         }
+
+        /* Countdown Style */
+        .timer-box {
+            font-variant-numeric: tabular-nums;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-gray-800">
 
     <div id="surprise-overlay">
-        <div class="text-center px-6 max-w-2xl">
+        <div class="text-center px-6 max-w-2xl w-full">
             
-            <div class="flex justify-center items-center gap-4 mb-8">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-8">
                 <img src="https://i.postimg.cc/qqytSXck/Screenshot-2026-01-15-22-43-11-29-92460851df6f172a4592fca41cc2d2e6.jpg" 
                      alt="Habras International School" 
-                     class="h-20 md:h-24 w-auto object-contain rounded-lg shadow-sm border border-gray-100 p-1 bg-white">
+                     class="h-28 md:h-36 w-auto object-contain rounded-lg shadow-sm border border-gray-100 p-1 bg-white">
                 
-                <span class="text-gray-300 text-2xl font-light">✕</span>
+                <span class="text-gray-300 text-3xl font-light transform rotate-90 md:rotate-0">✕</span>
                 
                 <img src="https://i.postimg.cc/4xBYD3cX/Screenshot-2026-01-14-12-46-53-47-680d03679600f7af0b4c700c6b270fe7.jpg" 
                      alt="Marks Saathi" 
-                     class="h-20 md:h-24 w-auto object-contain rounded-lg shadow-sm border border-gray-100 p-1 bg-white">
+                     class="h-28 md:h-36 w-auto object-contain rounded-lg shadow-sm border border-gray-100 p-1 bg-white">
             </div>
             
             <h1 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-4 tracking-tight uppercase leading-snug">
@@ -118,7 +123,7 @@
                 has a special announcement for you
             </p>
             
-            <button onclick="revealSite()" class="bg-brand-blue text-white font-bold py-3 px-10 rounded-full shadow-xl hover:bg-brand-dark transition transform hover:scale-105 text-lg pulse-soft">
+            <button onclick="revealSite()" class="bg-brand-blue text-white font-bold py-3 px-12 rounded-full shadow-xl hover:bg-brand-dark transition transform hover:scale-105 text-lg pulse-soft">
                 Click Here
             </button>
         </div>
@@ -133,23 +138,26 @@
             <div class="relative z-10 max-w-4xl mx-auto" data-aos="fade-down">
                 
                 <div class="flex justify-center mb-8">
-                    <img src="https://i.postimg.cc/qqytSXck/Screenshot-2026-01-15-22-43-11-29-92460851df6f172a4592fca41cc2d2e6.jpg" 
-                         alt="Habras International School" 
-                         class="h-40 md:h-56 w-auto object-contain drop-shadow-xl rounded-2xl bg-white p-2 border border-gray-100">
+                    <img src="https://i.postimg.cc/4xBYD3cX/Screenshot-2026-01-14-12-46-53-47-680d03679600f7af0b4c700c6b270fe7.jpg" 
+                         alt="Marks Saathi" 
+                         class="h-48 md:h-64 w-auto object-contain drop-shadow-2xl rounded-3xl bg-white p-4 border border-gray-100">
                 </div>
 
                 <span class="inline-flex items-center px-4 py-1 rounded-full text-sm font-bold bg-red-100 text-red-600 mb-6 border border-red-200">
                     <span class="w-2 h-2 bg-red-600 rounded-full mr-2 animate-pulse"></span> LIVE TEST
                 </span>
 
-                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
                     Live General <br><span class="text-gradient">Reasoning Test</span>
                 </h1>
 
-                <p class="text-lg md:text-xl text-gray-700 font-medium mb-2 px-4">
-                    Habras International School in collaboration with 
-                    <span class="text-brand-blue font-bold">Marks Saathi</span>
-                </p>
+                <div class="text-lg md:text-2xl mb-4 px-4 leading-relaxed">
+                    <span class="text-brand-dark font-extrabold block md:inline">Habras International School</span>
+                    <span class="text-gray-500 font-medium mx-2 text-sm md:text-lg">in collaboration with</span>
+                    <span class="text-brand-blue font-extrabold block md:inline">Marks Saathi</span>
+                    <br>
+                    <span class="text-gray-400 text-sm font-bold tracking-widest uppercase mt-3 inline-block">Presents</span>
+                </div>
             </div>
         </header>
 
@@ -179,32 +187,40 @@
 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-lg hover-card border-l-4 border-l-blue-500" data-aos="fade-right">
-                        <div class="flex justify-between items-start">
+                        <div class="flex justify-between items-start mb-4">
                             <div>
-                                <h3 class="text-xl font-bold text-gray-800">Class 5 – 7</h3>
+                                <h3 class="text-xl font-bold text-gray-800">Class 5th, 6th, 7th</h3>
                                 <p class="text-gray-500 text-sm mt-1">Junior Group</p>
                             </div>
                             <div class="bg-blue-100 p-3 rounded-full">
                                 <i class="fas fa-user-graduate text-blue-600"></i>
                             </div>
                         </div>
-                        <div class="mt-4 flex items-center text-lg font-bold text-gray-700">
-                            <i class="far fa-clock mr-2 text-blue-500"></i> 4:00 PM – 4:30 PM
+                        <div class="flex items-center text-lg font-bold text-gray-700 mb-4">
+                            <i class="far fa-clock mr-2 text-blue-500"></i> 6:15 PM – 6:45 PM
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-3 text-center">
+                            <p class="text-xs text-blue-600 font-bold uppercase mb-1">Starts In:</p>
+                            <div id="timer-junior" class="text-xl font-mono font-bold text-blue-800 timer-box">Loading...</div>
                         </div>
                     </div>
 
                     <div class="bg-white border border-gray-100 rounded-2xl p-6 shadow-lg hover-card border-l-4 border-l-purple-500" data-aos="fade-left">
-                        <div class="flex justify-between items-start">
+                        <div class="flex justify-between items-start mb-4">
                             <div>
-                                <h3 class="text-xl font-bold text-gray-800">Class 8 – 10</h3>
+                                <h3 class="text-xl font-bold text-gray-800">Class 8th, 9th, 10th</h3>
                                 <p class="text-gray-500 text-sm mt-1">Senior Group</p>
                             </div>
                             <div class="bg-purple-100 p-3 rounded-full">
                                 <i class="fas fa-graduation-cap text-purple-600"></i>
                             </div>
                         </div>
-                        <div class="mt-4 flex items-center text-lg font-bold text-gray-700">
-                            <i class="far fa-clock mr-2 text-purple-500"></i> 4:30 PM – 5:00 PM
+                        <div class="flex items-center text-lg font-bold text-gray-700 mb-4">
+                            <i class="far fa-clock mr-2 text-purple-500"></i> 7:00 PM – 7:30 PM
+                        </div>
+                        <div class="bg-purple-50 rounded-lg p-3 text-center">
+                            <p class="text-xs text-purple-600 font-bold uppercase mb-1">Starts In:</p>
+                            <div id="timer-senior" class="text-xl font-mono font-bold text-purple-800 timer-box">Loading...</div>
                         </div>
                     </div>
                 </div>
@@ -247,7 +263,13 @@
                     </div>
                 </div>
 
-                <div class="mt-8 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg" data-aos="fade-up">
+                <div class="mt-4 bg-indigo-50 border border-indigo-100 rounded-lg p-4 text-center" data-aos="fade-up">
+                    <p class="text-indigo-800 font-semibold text-sm">
+                        <i class="fas fa-chart-line mr-2"></i> Solutions and detailed performance reports will be available on the app after the test.
+                    </p>
+                </div>
+
+                <div class="mt-6 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg" data-aos="fade-up">
                     <div class="flex items-start">
                         <div class="flex-shrink-0">
                             <i class="fas fa-exclamation-circle text-red-500 mt-1"></i>
@@ -345,6 +367,27 @@
             const parent = button.parentElement;
             parent.classList.toggle('accordion-active');
         }
-    </script>
-</body>
-</html>
+
+        // ⏱️ COUNTDOWN TIMER LOGIC
+        function updateCountdowns() {
+            const now = new Date().getTime();
+            
+            // Set Target Dates
+            const juniorDate = new Date("Jan 21, 2026 18:15:00").getTime();
+            const seniorDate = new Date("Jan 21, 2026 19:00:00").getTime();
+
+            function getTimeString(distance) {
+                if (distance < 0) return "STARTED";
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Format: 1d 04h 20m 10s
+                let result = "";
+                if (days > 0) result += days + "d ";
+                result += hours + "h " + minutes + "m " + seconds + "s";
+                return result;
+            }
+
+            document.getElementById("timer-junior").innerText = getTimeString(junior
